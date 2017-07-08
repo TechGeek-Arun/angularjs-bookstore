@@ -1,0 +1,7 @@
+ #review .ng-invalid {
+    border: 1.5px solid red;
+}
+
+#review .ng-valid {
+    border: 1.5px solid green;
+}

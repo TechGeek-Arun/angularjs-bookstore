@@ -1,0 +1,37 @@
+<ul class="list-group">
+  <li ng-repeat="x in myData" class="list-group-item" ng-model="x.available" ng-show="x.purchase">
+  <span class="badge badge-default badge-pill pull-right"><h4><span class="fa fa-rupee" aria-hidden="true"></span>{{x.price}}</h4></span>
+  <span class="badge badge-default badge-pill"><small>Available-</small>{{x.count}}</span>
+  <h1>{{x.title}}</h1>
+  <small><i>Author -{{x.author}}</i></small><br>
+  <img src="{{x.image}}" alt="{{x.title}}" class="img-thumbnail" width="304" height="236"/><br>
+  	
+  <button ng-show="x.available" class="btn btn-primary btn-lg pull-right" data-toggle="popover" title="Available">
+  <span class="fa fa-cart-plus" aria-hidden="true">Add to cart</span> 
+  </button><br>
+ 
+
+  
+   
+   
+   <section ng-controller="TabController as tab">
+  <ul class="nav nav-pills">
+    <li ng-class="{active:tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Description</a></li>
+    <li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Specification</a></li>
+    <li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Reviews</a></li>
+  </ul>
+        
+        <div ng-show="tab.isSet(1)">
+             <h4><p>{{x.description}}</p></h4>
+        </div>
+        <div ng-show="tab.isSet(2)">
+             <h4><p>{{x.specification}}</p></h4>
+        </div>
+        <div ng-show="tab.isSet(3)">
+             <book-review></book-review>
+        </div>
+   </section>
+  
+  
+  </li>
+</ul>

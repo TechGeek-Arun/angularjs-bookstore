@@ -1,0 +1,40 @@
+<form name="myForm" id="review" ng-submit="submit()" ng-controller="ReviewController" class="review-form form-horizontal">
+
+<ul class="list-group small">
+  <li class="list-group-item list-group-item-info"  ng-repeat="x in comment">
+  <small><h5 class="mb-1">Star {{x.rater}} : </h5><p class="mb-1">{{x.text}}</p> 
+  <br><i>by {{x.mail}}</i></small>
+  </li>
+</ul>
+
+<fieldset>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Rating: </label>
+    <div class="col-sm-10">
+<select ng-model="list.rater" required><option ng-repeat="x in rating" value="{{x}}">{{x}}</option></select>
+
+</div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Email:</label>
+    <div class="col-sm-10">
+<input type="email" name="email" placeholder="Enter valid email id" value="" ng-model="list.mail"required></input>
+</div>
+  </div>
+  <div class="form-group">
+    <label  class="col-sm-2 control-label">Comment:</label>
+    <div class="col-sm-10">
+	<textarea type="text" ng-model="list.text" name="text" placeholder="write a short review of book" required></textarea>
+	</div>
+  </div>
+  <div class="form-group">
+  <div class="col-sm-10">
+<input type="submit" id="submit" ng-click="update(list)" value="Submit"></input><code>review form is {{myForm.$valid}}</code>
+</div>
+</div>
+
+<!--<pre>list={{list | json}}</pre>
+<pre>master = {{master | json}}</pre>-->
+</fieldset>
+
+</form>
